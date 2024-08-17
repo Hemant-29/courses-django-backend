@@ -1,6 +1,12 @@
 from rest_framework import generics
 from .models import Course, CourseInstance
 from .serializers import CourseSerializer, CourseInstanceSerializer
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("Hello World!")
+
 
 # Courses -----------------------------------------------------------
 

@@ -18,7 +18,7 @@ COPY . /app/
 WORKDIR /app/Courses
 
 # Expose the port your application will run on
-EXPOSE 8000
+# EXPOSE 8000
 
 # Set environment variables
 ENV DJANGO_SETTINGS_MODULE=Courses.settings
@@ -28,4 +28,4 @@ RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 
 # Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "Courses.wsgi:application"]
+CMD ["python3", "manage.py", "runserver","0.0.0.0:8000"]
