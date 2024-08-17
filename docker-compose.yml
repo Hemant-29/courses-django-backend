@@ -1,0 +1,20 @@
+services:
+  backend:
+    image: hemantbagaria/courses-api-backend:latest
+    container_name: backend-container
+    ports:
+      - "8000:8000"  # Map backend container port to host
+    networks:
+      - app-network
+
+  frontend:
+    image: hemantbagaria/courses-frontend:latest
+    container_name: frontend-container
+    ports:
+      - "3000:3000"  # Map frontend container port to host
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
