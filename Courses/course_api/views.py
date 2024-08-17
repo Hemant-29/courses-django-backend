@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("Hello World!")
+    return HttpResponse("Server running at port - 8000")
 
 
 # Courses -----------------------------------------------------------
