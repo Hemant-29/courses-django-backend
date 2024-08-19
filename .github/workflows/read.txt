@@ -1,1 +1,0 @@
-this file automatically update the dockerhub image
