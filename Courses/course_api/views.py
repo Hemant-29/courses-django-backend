@@ -53,6 +53,13 @@ class CourseInstanceDetailView(generics.GenericAPIView):
         course_id = self.kwargs['course_id']
         return CourseInstance.objects.filter(year=year, semester=semester, course__id=course_id)
 
+    def get(self, request, *args, **kwargs):
+        instances = self.get_queryset()
+        if instances.exists():
+            serializer = self.get_serializer(instances, many=True)
+            return Response(serializer.data)
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
     def delete(self, request, *args, **kwargs):
         instances = self.get_queryset()
         if instances.exists():
